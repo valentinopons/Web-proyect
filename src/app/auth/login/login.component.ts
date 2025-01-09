@@ -29,8 +29,18 @@ export class LoginComponent {
   loginValidation(){
     if(this.loginForm.valid){
       //this.router.navigateByUrl()
-      console.log("ok")
-      this.loginService.login(this.loginForm.value as LoginRequest);
+      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
+        next:(userData)=>{
+          console.log(userData);
+        },
+        error: (errorData)=>{
+          console.error(errorData);
+        },
+        complete:() => {
+          console.info("ok")
+        }
+
+      });
       this.loginForm.reset();
     }else{
       alert("Error, invalid credentials")
