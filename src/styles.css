@@ -1,6 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
 :root{
     color-scheme:  light dark;
     background-color: black;
     
+}
+
+.ng-valid:not(form).ng-touched {
+    border-left: 5px solid rgb(0, 155, 0);
+}
+.ng-invalid:not(form).ng-touched {
+    border-left: 5px solid red;
 }
