@@ -1,0 +1,16 @@
+h1{
+    background-color: black;
+    font-size: small;
+    color: green;
+}
+body{
+    text-align: center;
+    background-color: black;
+    color: rgb(5, 182, 5);
+}
+a{
+    color: rgb(5, 182, 5);
+    text-decoration: dotted;
+    font-style: unset;
+    font-size: large;
+}
