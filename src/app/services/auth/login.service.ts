@@ -1,14 +1,17 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import { LoginRequest } from './login.request';
+import {HttpClient} from '@angular/common/http';
+import {FormBuilder} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor() { }
+  private http  = inject(HttpClient);
+  //constructor(private http: HttpClient) { }
   login(credentials:LoginRequest){
-    console.log(credentials);
+    this.http.get("././assets/data.json")
   }
-  
+
 }
