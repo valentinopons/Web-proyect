@@ -1,8 +1,8 @@
-export interface user{
-    message?: "Autentication succeded",
-    id: 1,
-    name?:"Valentino",
-    lastName?:"Pons",
-    emai : "valentinopons@gmail",
-    password?: "tino123"
+export interface User{
+    message?: string,
+    id: number,
+    name?:string,
+    lastName?:string,
+    email : string,
+    password?: string
  }
