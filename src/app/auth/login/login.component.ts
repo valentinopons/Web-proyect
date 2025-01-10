@@ -4,10 +4,11 @@ import {  } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/auth/login.service';
 import { LoginRequest } from '../../services/auth/login.request';
+import {HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, HttpClientModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -21,6 +22,11 @@ export class LoginComponent {
   email: ['example@gmail.com', [Validators.email, Validators.required]],
   password: ['',[Validators.required]],});
 
+
+
+  get email(){
+    return this.loginForm.controls.email;
+  }
   loginValidation(){
     if(this.loginForm.valid){
       //this.router.navigateByUrl()

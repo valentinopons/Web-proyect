@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import { LoginRequest } from './login.request';
 import { catchError, Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -26,5 +26,5 @@ export class LoginService {
     return throwError(()=> new Error('Something went wrong, please try again later'));
 
   }
-  
+
 }
