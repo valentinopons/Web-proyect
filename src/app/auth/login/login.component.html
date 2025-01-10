@@ -1,5 +1,6 @@
 
     <form [formGroup] ="loginForm">
+      <p class="text-danger">{{loginError}}</p>
         <div class="mb-3"  >
           <label for="exampleInputEmail1" class="form-label">Email address</label>
           <input formControlName = "email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

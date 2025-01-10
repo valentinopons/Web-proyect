@@ -16,6 +16,7 @@ export class LoginComponent {
   private formBuilder  = inject(FormBuilder);
   private router       = inject(Router);
   private loginService = inject(LoginService);
+  loginError = "";
   loginForm = this.formBuilder.group({
   email: ['example@gmail.com', [Validators.email, Validators.required]],
   password: ['',[Validators.required]],});
@@ -23,7 +24,19 @@ export class LoginComponent {
   loginValidation(){
     if(this.loginForm.valid){
       //this.router.navigateByUrl()
-      this.loginService.login(this.loginForm.value as LoginRequest);
+      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
+        next:(userData) => {
+          console.log(userData);
+        },
+        error:(errorData)=> {
+          console.error(errorData);
+          this.loginError = errorData;
+        },
+        complete: () => {
+          console.info("Login completed");
+            
+        }
+      });
       this.loginForm.reset();
     }else{
       alert("Error, invalid credentials")
